@@ -1,8 +1,8 @@
+import { memo } from 'react'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
-import { memo } from 'react'
-import { BoostCounts, defaultBoostCounts } from '../helpers'
+import { BoostCounts, defaultBoostCounts } from './helpers'
 
 interface FieldConfig {
   key: keyof BoostCounts
@@ -22,11 +22,16 @@ export interface BoostCountFormProps {
   onChange: (values: BoostCounts) => void
 }
 
-export const BoostCountForm = memo(function BoostCountForm(props: BoostCountFormProps) {
+export const BoostCountForm = memo(function BoostCountForm(
+  props: BoostCountFormProps,
+) {
   const { values, onChange } = props
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange({ ...values, [event.currentTarget.id]: +event.currentTarget.value })
+    onChange({
+      ...values,
+      [event.currentTarget.id]: +event.currentTarget.value,
+    })
   }
 
   return (

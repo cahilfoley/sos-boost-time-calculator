@@ -1,4 +1,5 @@
 export * from './useDeepCompareEffect'
+export * from './useDocumentTitle'
 export * from './useLatestCallback'
 export * from './useLocalStorage'
 export * from './useUpdatedRef'

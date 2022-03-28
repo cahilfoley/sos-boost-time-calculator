@@ -1,7 +1,5 @@
 import { useMemo } from 'react'
-import addMinutes from 'date-fns/addMinutes'
-import intervalToDuration from 'date-fns/intervalToDuration'
-import formatDuration from 'date-fns/formatDuration'
+import { addMinutes, intervalToDuration, formatDuration } from 'date-fns'
 
 export enum SpecificBoostType {
   Construction = 'Construction',
