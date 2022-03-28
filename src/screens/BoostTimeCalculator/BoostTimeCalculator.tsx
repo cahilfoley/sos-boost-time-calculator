@@ -78,7 +78,7 @@ export function BoostTimeCalcuator() {
             />
           </Section>
         </Grid>
-        <Grid item md={4} sm={12}>
+        <Grid item md={4} sm={12} xs={12}>
           <Section title="Boost Durations" noCardContent>
             <DetailsList
               items={[

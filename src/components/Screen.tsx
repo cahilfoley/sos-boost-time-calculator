@@ -37,10 +37,10 @@ function Screen(props: ScreenProps) {
           my={2}
           flexWrap="wrap"
         >
-          <Typography variant="h3" component="div" align="left">
+          <Typography variant="h3" component="div" align="left" gutterBottom>
             {props.title}
           </Typography>
-          <div>{props.actions}</div>
+          <Box>{props.actions}</Box>
         </Box>
 
         <ContentWrapper>{props.children}</ContentWrapper>
