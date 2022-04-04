@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider } from '@mui/material/styles'
 import { theme } from './theme'
+import { register } from './serviceWorkerRegistration'
 import App from './App'
 
 const rootElement = document.getElementById('root')
@@ -15,3 +16,5 @@ render(
   </StrictMode>,
   rootElement,
 )
+
+register()
