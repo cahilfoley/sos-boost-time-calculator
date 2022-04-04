@@ -8,7 +8,7 @@ import DetailsList from '../../components/DetailsList'
 import Section from '../../components/Section'
 import Screen from '../../components/Screen'
 
-import useLocalStorage from '../../hooks/useLocalStorage'
+import { useLocalStorageValue } from '@react-hookz/web'
 import {
   defaultBoostCounts,
   sumBoostCounts,
@@ -18,17 +18,17 @@ import {
 } from './helpers'
 
 export function BoostTimeCalcuator() {
-  const [specificBoostType, setSpecificBoostType] = useLocalStorage(
+  const [specificBoostType, setSpecificBoostType] = useLocalStorageValue(
     'specificBoostType',
     SpecificBoostType.Construction,
   )
-  const [specificBoosts, setSpecificBoosts] = useLocalStorage(
+  const [specificBoosts, setSpecificBoosts] = useLocalStorageValue(
     `specific${specificBoostType}Boosts`,
     defaultBoostCounts,
   )
   const specificBoostDuration = useBoostsDuration(specificBoosts)
 
-  const [generalBoosts, setGeneralBoosts] = useLocalStorage(
+  const [generalBoosts, setGeneralBoosts] = useLocalStorageValue(
     'generalBoosts',
     defaultBoostCounts,
   )
@@ -84,15 +84,15 @@ export function BoostTimeCalcuator() {
               items={[
                 {
                   label: `${specificBoostType} boosts`,
-                  value: specificBoostDuration.formattedDuration,
+                  value: specificBoostDuration.formattedDurationWithMinutes,
                 },
                 {
                   label: 'General boosts',
-                  value: generalBoostDuration.formattedDuration,
+                  value: generalBoostDuration.formattedDurationWithMinutes,
                 },
                 {
                   label: 'Total boosts',
-                  value: allBoostDuration.formattedDuration,
+                  value: allBoostDuration.formattedDurationWithMinutes,
                 },
               ]}
             />

@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import useUpdatedRef from './useUpdatedRef'
+import { useSyncedRef } from '@react-hookz/web'
 
 type AnyFunction = (...args: any[]) => any
 
@@ -15,7 +15,7 @@ type AnyFunction = (...args: any[]) => any
  */
 export function useLatestCallback<T extends AnyFunction>(callback?: T): T {
   // Decouple the callback value from renders
-  const callbackRef = useUpdatedRef(callback)
+  const callbackRef = useSyncedRef(callback)
 
   // This callback has the same call signature as the callback passed in but will
   // maintain a stable reference across renders

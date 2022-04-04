@@ -42,6 +42,7 @@ export const minuteDurations: { [K in keyof BoostCounts]: number } = {
 export interface GetTotalDurationResult {
   totalMinutes: number
   formattedDuration: string
+  formattedDurationWithMinutes: string
 }
 
 export function getTotalDuration(boosts: BoostCounts): GetTotalDurationResult {
@@ -58,8 +59,12 @@ export function getTotalDuration(boosts: BoostCounts): GetTotalDurationResult {
 
   const duration = intervalToDuration({ start, end })
   const formattedDuration = formatDuration(duration) || 'None'
+  const formattedDurationWithMinutes = [
+    formattedDuration,
+    `(${totalMinutes} mins)`,
+  ].join(' ')
 
-  return { totalMinutes, formattedDuration }
+  return { totalMinutes, formattedDuration, formattedDurationWithMinutes }
 }
 
 export function sumBoostCounts(...boostCounts: BoostCounts[]): BoostCounts {

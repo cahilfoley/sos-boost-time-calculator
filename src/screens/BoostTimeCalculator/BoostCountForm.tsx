@@ -43,11 +43,13 @@ export const BoostCountForm = memo(function BoostCountForm(
             key={field.key}
             label={field.label}
             fullWidth
-            value={values[field.key]}
+            defaultValue={values[field.key]}
+            InputLabelProps={{ shrink: true }}
             type="number"
             onChange={handleChange}
             margin="normal"
             size="small"
+            onFocus={(event) => event.target.select()}
           />
         )
       })}
