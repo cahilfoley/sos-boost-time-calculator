@@ -51,7 +51,7 @@ export function getTotalDuration(boosts: BoostCounts): GetTotalDurationResult {
   const entries = Object.entries(boosts) as [keyof BoostCounts, number][]
 
   for (const [key, value] of entries) {
-    totalMinutes += value * minuteDurations[key]
+    if (value) totalMinutes += value * minuteDurations[key]
   }
 
   const start = new Date()

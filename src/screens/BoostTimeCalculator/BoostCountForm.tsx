@@ -30,7 +30,9 @@ export const BoostCountForm = memo(function BoostCountForm(
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange({
       ...values,
-      [event.currentTarget.id]: +event.currentTarget.value,
+      [event.currentTarget.id]: event.currentTarget.value
+        ? Math.max(0, +event.currentTarget.value)
+        : undefined,
     })
   }
 
@@ -43,7 +45,7 @@ export const BoostCountForm = memo(function BoostCountForm(
             key={field.key}
             label={field.label}
             fullWidth
-            defaultValue={values[field.key]}
+            value={values[field.key]}
             InputLabelProps={{ shrink: true }}
             type="number"
             onChange={handleChange}
